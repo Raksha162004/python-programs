@@ -1,0 +1,18 @@
+names=[]
+sub=[]
+per=[]
+for i in range(5):
+    a=input(f"Name {i+1}:")
+    names.append(a)
+    tot=0
+    p=0
+    for j in range(3):
+        b=int(input(f"sub {j+1} mark:"))
+        sub.append(b)
+        tot=tot+b
+    p=tot//3
+    per.append(p)
+print("----------------")
+for i in range(5): 
+    print(f"{i+1}. {names[i]} : {per[i]}%")
+print()
