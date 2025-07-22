@@ -1,0 +1,47 @@
+import random
+name1=input("Enter player 1:")
+name2=input("Enter player 2:")
+print("comp has fixed 5 nums in range of 1 to 10")
+print("You guys have to guess it....Ready??")
+nums=[]
+while(len(nums)!=5):
+    d=random.randint(1,10)
+    if( d not in nums):
+        nums.append(d)
+s1=0
+s2=0
+player1=[]
+player2=[]
+for i in range(3):
+    print("---------ROUND {}--------".format(i+1))
+    print("Dear {} guess your choice: ".format(name1))
+    ch=int(input())
+    if(ch in player1 or ch in player2):
+        print("already taken")
+    player1.append(ch)
+    if(ch in nums):
+        print("--------->>CORRECT")
+        s1=s1+1
+    else:
+        print("----------->>WRONG")
+    print("Dear {} guess your choice: ".format(name2))
+    ch=int(input())
+    if(ch in player1 or ch in player2):
+        print("already taken")
+    player2.append(ch)
+    if(ch in nums):
+        print("--------->>CORRECT")
+        s2=s2+1
+    else:
+        print("----------->>WRONG")
+print("numbers decided by comp {}".format(nums))
+print("numbers guessed by {} : {}".format(name1,player1))
+print("Correct guess={}".format(s1))
+print("numbers guessed by {} : {}".format(name2,player2))
+print("Correct guess={}".format(s2))
+if(s1>s2):
+    print("{} is the winner".format(name1))
+elif(s2>s1):
+    print("{} is the winner".format(name2))
+else:
+    print("Draw!!")

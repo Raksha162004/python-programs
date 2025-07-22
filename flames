@@ -1,0 +1,23 @@
+n1=input("Enter name 1:")
+n2=input("Enter name 2:")
+boy=list(n1)
+girl=list(n2)
+for i in range(len(boy)):
+    for j in range(len(girl)):
+        if(boy[i]==girl[j]):
+            boy[i]='2'
+            girl[j]='2'
+count=0
+for i in boy:
+    if(i!="2"):
+        count=count+1
+for i in girl:
+    if(i!="2"):
+        count=count+1
+print(count)
+ans=['F','L','A','M','E','S']
+index=0
+while(len(ans)!=1):
+    index=(index+(count-1))%len(ans)
+    ans.pop(index)
+print("The relation is ",ans[0])
