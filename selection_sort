@@ -1,0 +1,15 @@
+def selection(elements):
+    n=len(elements)
+    for i in range(n):
+        min=i
+        for j in range(i+1,n):
+            if elements[j]<elements[min]:
+                min=j
+        elements[i],elements[min]=elements[min],elements[i]
+    return elements
+
+
+
+elements=[10,12,2,5,7,100,87]
+res=selection(elements)
+print(res)

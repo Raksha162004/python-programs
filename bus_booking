@@ -1,0 +1,57 @@
+from datetime import datetime
+class Bus:
+    def __init__(self,bno,ac,cap):
+        self.bno=bno
+        self.ac=ac
+        self.cap=cap
+    def get_bno(self):
+        return self.bno
+    def get_ac(self):
+        return self.ac
+    def get_cap(self):
+        return self.cap
+    def display(self):
+        print(f"1.BUS NO:",self.get_bno())
+        print(f"2.AC:",self.get_ac())
+        print(f"3.CAPACITY:",self.get_cap())
+
+
+class Booking:
+    def __init__(self):
+        name=int(input("enter your name:"))
+        bno=int(input("enter the bus number:"))
+        d=int(input("enter date(dd-mm-yyyy):"))
+        date=datetime.strptime(d,"%d-%m-%Y").date()
+        self.name=name
+        self.bno=bno
+        self.date=date
+    def make_booking(self,BUSES,BOOKING):
+        if(self.is_available(BUSES,BOOKING,self.bno,self.date)):
+            BOOKING.append(self)
+        else:
+            
+
+BUSES=[Bus(1,True,2),Bus(2,False,60),Bus(3,True,55)]
+print("Available buses are:")
+for i in BUSES:
+    i.display()
+    print("---------------")
+BOOKING=[]
+while(True):
+    print("press 1 to book ticket")
+    print("press 2 to view booking")
+    print("press 3 to exit")
+    ch=int(input("enter your choice:"))
+    if(ch==1):
+        b=BOOKING()
+        b.make_booking(BUSES,BOOKING)
+    elif(ch==2):
+        if(not BOOKING):
+            print("no booking so far")
+        else:
+            for i in BOOKING:
+                i.display_book_info()
+    elif(ch==3):
+        print("exiting the system . Thank you!!")
+    else:
+        print("Invalid choice")
